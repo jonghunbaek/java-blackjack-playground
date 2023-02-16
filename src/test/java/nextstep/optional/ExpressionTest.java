@@ -3,7 +3,7 @@ package nextstep.optional;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.*;
 
 
 public class ExpressionTest {
@@ -14,9 +14,8 @@ public class ExpressionTest {
 
     @Test
     public void notValidExpression() {
-        assertThatIllegalArgumentException()
-                .isThrownBy(() -> {
-                    Expression.of("&");
-                });
+        assertThatThrownBy(() -> {
+            Expression.of("&");
+        });
     }
 }
