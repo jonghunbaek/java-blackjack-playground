@@ -1,6 +1,6 @@
 package blackjack;
 
-public class Spade implements Cards {
+public class Spade extends Cards {
 
 	@Override
 	public Card getCard(String no) {

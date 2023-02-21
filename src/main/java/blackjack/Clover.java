@@ -1,6 +1,6 @@
 package blackjack;
 
-public class Clover implements Cards{
+public class Clover extends Cards{
 
 	@Override
 	public Card getCard(String no) {
