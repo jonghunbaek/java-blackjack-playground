@@ -1,6 +1,5 @@
 package blackjack;
 
-
 public class Spade implements Cards {
 
 	@Override
