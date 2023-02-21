@@ -1,10 +1,10 @@
 package blackjack;
 
 
-public class Spade implements Card {
+public class Spade implements Cards {
 
 	@Override
-	public Cards createCard(int no) {
-		return new Cards(no, "스페이드");
+	public Card getCard(String no) {
+		return new Card(no, "스페이드");
 	}
 }

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import blackjack.Cards;
+import blackjack.Card;
 import blackjack.Spade;
 
 public class CardTest {
@@ -14,7 +15,7 @@ public class CardTest {
 	@DisplayName("카드 생성 테스트")
 	public void createCard() {
 		Spade spade = new Spade();
-		Cards result = spade.createCard(5);
-		assertThat(result).isEqualTo(new Cards(5,"스페이드"));
+		Card result = spade.getCard("5");
+		assertThat(result).isEqualTo(new Card("5","스페이드"));
 	}
 }
