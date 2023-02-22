@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Card {
 
-	public String[] cardNo = {"A","2","3","4","5","6","7","8","9","J","Q","K"};
+	private String[] cardNo = {"A","2","3","4","5","6","7","8","9","J","Q","K"};
 	private No no;
 	private Name name;
 	
