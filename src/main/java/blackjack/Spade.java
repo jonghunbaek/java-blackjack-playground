@@ -2,7 +2,7 @@ package blackjack;
 
 public class Spade extends Card {
 
-	public Spade(String no, String name) {
+	public Spade(int no, String name) {
 		super(no, name);
 	}
 }

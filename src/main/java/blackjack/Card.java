@@ -4,17 +4,16 @@ import java.util.Objects;
 
 public class Card {
 
+	public String[] cardNo = {"A","2","3","4","5","6","7","8","9","J","Q","K"};
 	private No no;
 	private Name name;
 	
-	public Card (String no, String name) {
-		this.no = new No(no);
+	public Card (int no, String name) {
+		this.no = new No(cardNo[no]);
 		this.name = new Name(name);
 	}
 	
-	public String getCardNo() {
-		return no.getNo();
-	}
+	
 	public String getCardName() {
 		return name.getName();
 	}

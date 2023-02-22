@@ -7,7 +7,7 @@ public class Cards {
 	
 	private List<Card> cards = new ArrayList<Card>();
 	
-	public void saveCard(String no, String name) {
+	public void saveCard(int no, String name) {
 		if (name.equals("스페이드")) {
 			cards.add(new Spade(no, name));
 			return;
