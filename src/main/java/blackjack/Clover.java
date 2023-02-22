@@ -1,9 +1,8 @@
 package blackjack;
 
-public class Clover extends Cards{
+public class Clover extends Card{
 
-	@Override
-	public Card getCard(String no) {
-		return new Card(no, "클로버");
+	public Clover(String no, String name) {
+		super(no, name);
 	}
 }

@@ -6,35 +6,28 @@ import java.util.List;
 public class Cards {
 	
 	private List<Card> cards = new ArrayList<Card>();
-	Cards spade = new Spade();
-	Cards clover = new Clover();
-	Cards heart = new Heart();
-	Cards diamond = new Diamond();
 	
-	public Card getCard(String no) {
-		return new Card(no, " ");
-	}
-
-	final public Card createCard(int no, String name) {
-		Card card;
+	public void saveCard(String no, String name) {
 		if (name.equals("스페이드")) {
-			card = spade.getCard(String.valueOf(no));
-			cards.add(card);
-			return card;
-		}
-		if (name.equals("클로버")) {
-			card = clover.getCard(String.valueOf(no));
-			cards.add(card);
-			return card;
+			cards.add(new Spade(no, name));
+			return;
 		}
 		if (name.equals("하트")) {
-			card = heart.getCard(String.valueOf(no));
-			cards.add(card);
-			return card;
+			cards.add(new Heart(no, name));
+			return;
 		}
-		
-		card = diamond.getCard(String.valueOf(no));
-		cards.add(card);
-		return card;
+		if (name.equals("다이아몬드")) {
+			cards.add(new Diamond(no, name));
+			return;
+		}
+		if (name.equals("클로버")) {
+			cards.add(new Clover(no, name));
+			return;
+		}	
 	}
+
+	public Card[] getCards() {
+		return cards.stream().toArray(size -> new Card[size]);
+	}
+
 }

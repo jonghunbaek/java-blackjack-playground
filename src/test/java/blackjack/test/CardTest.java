@@ -14,18 +14,19 @@ import blackjack.Spade;
 public class CardTest {
 
 	@Test
-	@DisplayName("카드 가져오기 테스트")
-	public void getCard() {
-		Cards spade = new Spade();
-		Card result = spade.getCard("5");
-		assertThat(result).isEqualTo(new Card("5","스페이드"));
+	@DisplayName("카드 생성하기 테스트")
+	public void createCard() {
+		Card result = new Spade("5","스페이드");
+		assertThat(result).isEqualTo(new Spade("5","스페이드"));
 	}	
 	
 	@Test
-	@DisplayName("카드 생성하기 테스트")
-	public void createCard() {
+	@DisplayName("카드들 가져오기 테스트")
+	public void getCard() {
 		Cards cards = new Cards();
-		Card result = cards.createCard(5,"스페이드");
-		assertThat(result).isEqualTo(new Card("5","스페이드"));
+		cards.saveCard("1", "스페이드");
+		cards.saveCard("2", "하트");
+		Card[] result = cards.getCards();
+		assertThat(result).isEqualTo(new Card[] {new Spade("1","스페이드"), new Heart("2","하트")});
 	}
 }

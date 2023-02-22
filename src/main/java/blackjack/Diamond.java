@@ -1,9 +1,8 @@
 package blackjack;
 
-public class Diamond extends Cards {
-
-	@Override
-	public Card getCard(String no) {
-		return new Card(no, "다이아몬드");
+public class Diamond extends Card {
+	
+	public Diamond(String no, String name) {
+		super(no, name);
 	}
 }
