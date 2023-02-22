@@ -2,6 +2,7 @@ package blackjack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cards {
 	
@@ -30,4 +31,22 @@ public class Cards {
 		return cards.stream().toArray(size -> new Card[size]);
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(cards);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cards other = (Cards) obj;
+		return Objects.equals(cards, other.cards);
+	}
+
+	
 }

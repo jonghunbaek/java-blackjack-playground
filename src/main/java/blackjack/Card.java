@@ -1,5 +1,6 @@
 package blackjack;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Card {
@@ -18,9 +19,14 @@ public class Card {
 		return name.getName();
 	}
 
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, no);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(cardNo);
+		result = prime * result + Objects.hash(name, no);
+		return result;
 	}
 
 	@Override
@@ -32,7 +38,6 @@ public class Card {
 		if (getClass() != obj.getClass())
 			return false;
 		Card other = (Card) obj;
-		return Objects.equals(name, other.name) && Objects.equals(no, other.no);
+		return Arrays.equals(cardNo, other.cardNo) && Objects.equals(name, other.name) && Objects.equals(no, other.no);
 	}
-	
 }

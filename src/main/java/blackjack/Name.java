@@ -18,7 +18,6 @@ public class Name {
 	public int hashCode() {
 		return Objects.hash(name);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -30,6 +29,4 @@ public class Name {
 		Name other = (Name) obj;
 		return Objects.equals(name, other.name);
 	}
-	
-	
 }

@@ -18,7 +18,6 @@ public class No {
 	public int hashCode() {
 		return Objects.hash(no);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -30,6 +29,4 @@ public class No {
 		No other = (No) obj;
 		return Objects.equals(no, other.no);
 	}
-	
-	
 }
