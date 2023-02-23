@@ -1,6 +1,7 @@
 package blackjack;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Card {
@@ -14,12 +15,56 @@ public class Card {
 		this.name = new Name(name);
 	}
 	
+	public String getCardNo() {
+		return no.getNo();
+	}
 	
 	public String getCardName() {
 		return name.getName();
 	}
-
-
+	
+	public boolean isNumber(String no) {
+		try {
+			Integer.parseInt(no);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+	public boolean isAce(String no) {
+		if (no.equals("A")) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static int sumNumber(List<Card> cards) {
+		return cards.stream()
+				  .filter(card -> card.isNumber(card.getCardNo()))
+				  .map(card -> Integer.parseInt(card.getCardNo()))
+				  .reduce(0, (a, b) -> (a + b));
+	}
+	
+	public static int sumNotNumber(List<Card> cards) {
+		int sumNumber = sumNumber(cards); 
+		int sumNotNumber = cards.stream()
+								.filter(card -> !card.isNumber(card.getCardNo()))
+								.filter(card -> !card.isAce(card.getCardNo()))
+								.map(card -> 10)
+								.reduce(0, (a,b) -> (a+b));
+		
+		int total = sumNumber + sumNotNumber;
+		boolean haveAce = cards.stream()
+							   .anyMatch(card -> card.getCardNo().equals("A"));
+		if (total+11 <= 21 && haveAce) {
+			return sumNotNumber + 11;
+		}
+		if (total+11 > 21 && haveAce) {
+			return sumNotNumber + 1;
+		}
+		return sumNotNumber;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

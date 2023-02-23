@@ -30,6 +30,11 @@ public class Cards {
 	public Card[] getCards() {
 		return cards.stream().toArray(size -> new Card[size]);
 	}
+	
+
+	public int sumCards() {
+		return Card.sumNumber(cards) + Card.sumNotNumber(cards);
+	}
 
 	@Override
 	public int hashCode() {
@@ -47,6 +52,4 @@ public class Cards {
 		Cards other = (Cards) obj;
 		return Objects.equals(cards, other.cards);
 	}
-
-	
 }
