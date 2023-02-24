@@ -33,10 +33,10 @@ public class CardTest {
 	@DisplayName("카드값 합계 테스트")
 	public void sumCards() {
 		Cards cards = new Cards();
-		cards.saveCard(6, "스페이드");
+		cards.saveCard(3, "스페이드");
 		cards.saveCard(8, "하트");
 		cards.saveCard(1, "클로버");
 		int result = cards.sumCards();
-		assertThat(result).isEqualTo(15);
+		assertThat(result).isEqualTo(12);
 	}
 }

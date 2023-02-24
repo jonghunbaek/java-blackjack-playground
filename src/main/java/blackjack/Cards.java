@@ -10,19 +10,19 @@ public class Cards {
 	
 	public void saveCard(int no, String name) {
 		if (name.equals("스페이드")) {
-			cards.add(new Spade(no, name));
+			cards.add(new Spade(no-1, name));
 			return;
 		}
 		if (name.equals("하트")) {
-			cards.add(new Heart(no, name));
+			cards.add(new Heart(no-1, name));
 			return;
 		}
 		if (name.equals("다이아몬드")) {
-			cards.add(new Diamond(no, name));
+			cards.add(new Diamond(no-1, name));
 			return;
 		}
 		if (name.equals("클로버")) {
-			cards.add(new Clover(no, name));
+			cards.add(new Clover(no-1, name));
 			return;
 		}	
 	}
@@ -31,9 +31,8 @@ public class Cards {
 		return cards.stream().toArray(size -> new Card[size]);
 	}
 	
-
 	public int sumCards() {
-		return Card.sumNumber(cards) + Card.sumNotNumber(cards);
+		return Card.sumTotal(Card.sumNumber(cards), Card.sumNotNumber(cards), cards);
 	}
 
 	@Override

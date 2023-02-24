@@ -46,23 +46,24 @@ public class Card {
 	}
 	
 	public static int sumNotNumber(List<Card> cards) {
-		int sumNumber = sumNumber(cards); 
-		int sumNotNumber = cards.stream()
-								.filter(card -> !card.isNumber(card.getCardNo()))
-								.filter(card -> !card.isAce(card.getCardNo()))
-								.map(card -> 10)
-								.reduce(0, (a,b) -> (a+b));
-		
+		return cards.stream()
+				.filter(card -> !card.isNumber(card.getCardNo()))
+				.filter(card -> !card.isAce(card.getCardNo()))
+				.map(card -> 10)
+				.reduce(0, (a,b) -> (a+b));
+	}
+	
+	public static int sumTotal(int sumNumber, int sumNotNumber, List<Card> cards) {
 		int total = sumNumber + sumNotNumber;
 		boolean haveAce = cards.stream()
 							   .anyMatch(card -> card.getCardNo().equals("A"));
 		if (total+11 <= 21 && haveAce) {
-			return sumNotNumber + 11;
+			return total + 11;
 		}
 		if (total+11 > 21 && haveAce) {
-			return sumNotNumber + 1;
+			return total + 1;
 		}
-		return sumNotNumber;
+		return total;
 	}
 	
 	@Override
