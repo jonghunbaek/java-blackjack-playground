@@ -10,13 +10,15 @@ public class BlackJackUi {
 		
 		System.out.println("게임에 참여할 사람의 이름을 입력하세요.");
 		String playerNames = sc.next();
-		String[] players = playerNames.split(",");
+		String[] playerName = blackJack.playerCheck(playerNames);
 		
-		for (int i=0; i<players.length; i++) {
+		
+		for (int i=0; i<playerName.length; i++) {
 			System.out.println("의 배팅 금액은?");
 			int bettingMoney = sc.nextInt();
-			Player player = new Player(players[i], bettingMoney);
+			blackJack.joinPlayer(playerName[i], bettingMoney);
 		}
+		blackJack.handOutCards();
 		System.out.println("딜러와 00, 00에게 2장의 카드를 나누었습니다.");
 
 		System.out.println("딜러: ");
@@ -38,6 +40,5 @@ public class BlackJackUi {
 	    System.out.println("딜러: ");
 	    // 반복문으로
 	    System.out.println("00: ");
-	    
 	}
 }
