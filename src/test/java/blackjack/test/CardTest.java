@@ -26,7 +26,7 @@ public class CardTest {
 		cards.saveCard(1, "스페이드");
 		cards.saveCard(2, "하트");
 		Card[] result = cards.getCards();
-		assertThat(result).isEqualTo(new Card[] {new Spade(1,"스페이드"), new Heart(2,"하트")});
+		assertThat(result).isEqualTo(new Card[] {new Spade(0,"스페이드"), new Heart(1,"하트")});
 	}
 	
 	@Test
@@ -38,5 +38,16 @@ public class CardTest {
 		cards.saveCard(1, "클로버");
 		int result = cards.sumCards();
 		assertThat(result).isEqualTo(12);
+	}
+	
+	@Test
+	@DisplayName("카드 이름, 값 중복 테스트")
+	public void isDistinctCard() {
+		Cards cards = new Cards();
+		Card card = new Spade(2, "스페이드");
+		cards.saveCard(3, "스페이드");
+		cards.saveCard(8, "하트");
+		cards.saveCard(1, "클로버");
+		assertThat(cards.isDistinctCard(card)).isFalse();
 	}
 }

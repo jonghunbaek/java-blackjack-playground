@@ -3,7 +3,7 @@ package blackjack;
 public class BlackJackUtil {
 
 	public int randomCardNo() {
-		return (int)(Math.random()*10 + 1);
+		return (int)(Math.random()*12 + 1);
 	}
 	
 	public int randomCardName() {

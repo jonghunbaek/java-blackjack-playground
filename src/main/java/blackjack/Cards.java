@@ -34,6 +34,13 @@ public class Cards {
 	public int sumCards() {
 		return Card.sumTotal(Card.sumNumber(cards), Card.sumNotNumber(cards), cards);
 	}
+	
+	public boolean isDistinctCard(Card card) {
+		if (cards.contains(card)) {
+			return false;
+		}
+		return true;
+	}
 
 	@Override
 	public int hashCode() {
