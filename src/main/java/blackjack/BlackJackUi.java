@@ -6,14 +6,17 @@ public class BlackJackUi {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		BlackJack blackJack = new BlackJack();
 		
 		System.out.println("게임에 참여할 사람의 이름을 입력하세요.");
 		String playerNames = sc.next();
+		String[] players = playerNames.split(",");
 		
-		// 반복문으로 
-		System.out.println("의 배팅 금액은?");
-		int bettingMoney = sc.nextInt();
-		
+		for (int i=0; i<players.length; i++) {
+			System.out.println("의 배팅 금액은?");
+			int bettingMoney = sc.nextInt();
+			Player player = new Player(players[i], bettingMoney);
+		}
 		System.out.println("딜러와 00, 00에게 2장의 카드를 나누었습니다.");
 
 		System.out.println("딜러: ");
