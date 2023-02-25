@@ -11,7 +11,13 @@ public class Players {
 		players.add(player);
 	}
 	
-	public Player[] getPlayers() {
-		return players.stream().toArray(s -> new Player[s]);
+	public List<Player> getPlayers() {
+		return players;
+	}
+	
+	public void saveCards(int no, int name) {
+		for (Player player : players) {
+			player.saveCard(no, name);
+		}
 	}
 }

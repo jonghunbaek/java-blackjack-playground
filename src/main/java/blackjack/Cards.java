@@ -8,23 +8,8 @@ public class Cards {
 	
 	private List<Card> cards = new ArrayList<Card>();
 	
-	public void saveCard(int no, String name) {
-		if (name.equals("스페이드")) {
-			cards.add(new Spade(no-1, name));
-			return;
-		}
-		if (name.equals("하트")) {
-			cards.add(new Heart(no-1, name));
-			return;
-		}
-		if (name.equals("다이아몬드")) {
-			cards.add(new Diamond(no-1, name));
-			return;
-		}
-		if (name.equals("클로버")) {
-			cards.add(new Clover(no-1, name));
-			return;
-		}	
+	public void saveCard(int no, int name) {
+		cards.add(new Card(no-1, name));
 	}
 
 	public Card[] getCards() {

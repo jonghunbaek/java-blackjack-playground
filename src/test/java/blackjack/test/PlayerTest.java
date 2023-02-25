@@ -12,8 +12,8 @@ public class PlayerTest {
 	@Test
 	@DisplayName("배팅금액 확인 테스트")
 	public void getBettingMoney() {
-		Player player = new Player(10000);
+		Player player = new Player("김덕배",10000);
 		int result = player.getBettingMoney();
-		assertThat(result).isEqualTo(new Player(10000).getBettingMoney());
+		assertThat(result).isEqualTo(new Player("김덕배",10000).getBettingMoney());
 	}
 }

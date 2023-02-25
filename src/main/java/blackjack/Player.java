@@ -22,7 +22,7 @@ public class Player implements Person {
 	}
 	
 	@Override
-	public void saveCard(int no, String name) {
+	public void saveCard(int no, int name) {
 		cards.saveCard(no, name);
 	}
 	@Override

@@ -6,13 +6,14 @@ import java.util.Objects;
 
 public class Card {
 
-	private String[] cardNo = {"A","2","3","4","5","6","7","8","9","J","Q","K"};
+	private static final String[] cardNo = {"A","2","3","4","5","6","7","8","9","J","Q","K"};
+	private static final String[] cardName = {"스페이드", "클로버", "다이아몬드", "하트"};
 	private No no;
 	private Name name;
 	
-	public Card (int no, String name) {
+	public Card (int no, int name) {
 		this.no = new No(cardNo[no]);
-		this.name = new Name(name);
+		this.name = new Name(cardName[name]);
 	}
 	
 	public String getCardNo() {

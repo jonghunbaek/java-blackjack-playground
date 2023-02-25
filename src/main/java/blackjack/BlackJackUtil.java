@@ -7,6 +7,6 @@ public class BlackJackUtil {
 	}
 	
 	public int randomCardName() {
-		return (int)(Math.random()*4 + 1);
+		return (int)(Math.random()*4);
 	}
 }

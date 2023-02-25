@@ -14,12 +14,23 @@ public class BlackJackUi {
 		
 		
 		for (int i=0; i<playerName.length; i++) {
-			System.out.println("의 배팅 금액은?");
+			System.out.println(playerName[i] + "의 배팅 금액은?");
 			int bettingMoney = sc.nextInt();
 			blackJack.joinPlayer(playerName[i], bettingMoney);
 		}
-		blackJack.handOutCards();
-		System.out.println("딜러와 00, 00에게 2장의 카드를 나누었습니다.");
+		for (int i=0; i<playerName.length+1; i++) {
+			blackJack.handOutCards(i);			
+		}
+		
+		System.out.print("딜러와");
+		for (int i=0; i<playerName.length; i++) {
+			if (i == playerName.length-1) {
+				System.out.print(playerName[i]);
+				break;
+			}
+			System.out.print(playerName[i] + ", ");
+		}
+		System.out.println("에게 2장의 카드를 나누었습니다.");
 
 		System.out.println("딜러: ");
 		// 반복문으로
