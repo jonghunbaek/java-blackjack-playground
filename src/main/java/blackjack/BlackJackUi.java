@@ -12,13 +12,13 @@ public class BlackJackUi {
 		String playerNames = sc.next();
 		String[] playerName = blackJack.playerCheck(playerNames);
 		
-		
+		blackJack.joinPlayer(new Dealer("딜러"));
 		for (int i=0; i<playerName.length; i++) {
 			System.out.println(playerName[i] + "의 배팅 금액은?");
 			int bettingMoney = sc.nextInt();
-			blackJack.joinPlayer(playerName[i], bettingMoney);
+			blackJack.joinPlayer(new Player(playerName[i], bettingMoney));
 		}
-		for (int i=0; i<playerName.length+1; i++) {
+		for (int i=0; i<blackJack.getPlayer().size(); i++) {
 			blackJack.handOutCards(i);			
 		}
 		
@@ -32,10 +32,12 @@ public class BlackJackUi {
 		}
 		System.out.println("에게 2장의 카드를 나누었습니다.");
 
-		System.out.println("딜러: ");
-		// 반복문으로
-		System.out.println("00카드: ");
-		
+		for (int i=0; i<blackJack.getPlayer().size(); i++) {
+			System.out.print(blackJack.getPlayer().get(i).getName() + ":");
+			for (int j=0; j<blackJack.getCards().length; j++) {
+				System.out.print(blackJack.getCards()[j] + (j == blackJack.getCards().length-1 ? "\n" : ", "));
+			}
+		}	
 		// 분기 후
 		System.out.println("00은 한장의 카드를 더 받겠습니까?");
 		String answer = sc.next();

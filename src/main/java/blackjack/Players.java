@@ -5,18 +5,18 @@ import java.util.List;
 
 public class Players {
 	
-	List<Player> players = new ArrayList<Player>();
+	List<Person> players = new ArrayList<Person>();
 	
-	public void savePlayer(Player player) {
+	public void savePlayer(Person player) {
 		players.add(player);
 	}
 	
-	public List<Player> getPlayers() {
+	public List<Person> getPlayers() {
 		return players;
 	}
 	
 	public void saveCards(int no, int name) {
-		for (Player player : players) {
+		for (Person player : players) {
 			player.saveCard(no, name);
 		}
 	}

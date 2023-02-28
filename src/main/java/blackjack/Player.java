@@ -1,7 +1,5 @@
 package blackjack;
 
-import java.util.Objects;
-
 public class Player implements Person {
 	
 	private int betting;
@@ -13,7 +11,7 @@ public class Player implements Person {
 		this.betting = betting;
 	}
 	
-	public String getPlayerName() {
+	public String getName() {
 		return name.getName();
 	}
 
