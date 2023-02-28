@@ -22,6 +22,10 @@ public class BlackJack {
 			card = createCards();
 			players.getPlayers().get(num).saveCard(card[0], card[1]);
 		}
+		for (int i=0; i<2; i++) {
+			System.out.println(players.getPlayers().get(num).getCards()[i].getCardNo() 
+							  +players.getPlayers().get(num).getCards()[i].getCardName()); 
+		}
 	}
 	
 	public int[] createCards() {
@@ -31,9 +35,4 @@ public class BlackJack {
 	public List<Person> getPlayer() {
 		return players.getPlayers();
 	}
-	
-	public Card[] getCards() {
-		return cards.getCards(); 
-	}
-	
 }

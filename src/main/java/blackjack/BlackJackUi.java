@@ -34,8 +34,10 @@ public class BlackJackUi {
 
 		for (int i=0; i<blackJack.getPlayer().size(); i++) {
 			System.out.print(blackJack.getPlayer().get(i).getName() + ":");
-			for (int j=0; j<blackJack.getCards().length; j++) {
-				System.out.print(blackJack.getCards()[j] + (j == blackJack.getCards().length-1 ? "\n" : ", "));
+			for (int j=0; j<blackJack.getPlayer().get(i).getCards().length; j++) {
+				System.out.print(blackJack.getPlayer().get(i).getCards()[j].getCardNo() 
+							   + blackJack.getPlayer().get(i).getCards()[j].getCardName() 
+							   + (j == blackJack.getPlayer().get(i).getCards().length-1 ? "\n" : ", "));
 			}
 		}	
 		// 분기 후

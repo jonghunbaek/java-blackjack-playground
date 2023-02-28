@@ -16,7 +16,7 @@ public class PersonTest {
 	@DisplayName("보유카드 가져오기")
 	public void getCards() {
 		Person player = new Player("김덕배",10000);
-		Person dealer = new Dealer();
+		Person dealer = new Dealer("딜러");
 		player.saveCard(1, 0);
 		dealer.saveCard(2, 0);
 		Card[] result1 = player.getCards();
